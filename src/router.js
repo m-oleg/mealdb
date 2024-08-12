@@ -4,13 +4,40 @@ const routes = [
 	{
 		path: '',
 		name: 'home',
-		component: () => import('./views/Home.vue')
+		component: () => import('./components/DefaultLayout.vue'),
+		children: [
+			{
+				path: '/',
+				name: 'home',
+				component: () => import('./views/Home.vue')
+			},
+			{
+				path: '/letter/:letter?',
+				name: 'byLetter',
+				component: () => import('./views/SearchByLetter.vue')
+			},
+			{
+				path: '/name/:name?',
+				name: 'byName',
+				component: () => import('./views/MealsByName.vue')
+			},
+			{
+				path: '/ingredient/:ingredient?',
+				name: 'byIngredient',
+				component: () => import('./views/SearchByIngredients.vue')
+			},
+			{
+				path: '/meal/:id',
+				name: 'mealDetails',
+				component: () => import('./views/MealDetails.vue')
+			}
+		]
 	},
 	{
-		path: '/letter/:letter',
-		name: 'byLetter',
-		component: () => import('./views/MealList.vue')
+		path: '/guest',
+		component: () => import('./components/GuestLayout.vue')
 	}
+	
 ]
 
 const router = createRouter({
