@@ -14,17 +14,17 @@ const routes = [
 			{
 				path: '/letter/:letter?',
 				name: 'byLetter',
-				component: () => import('./views/SearchByLetter.vue')
+				component: () => import('./views/MealByLetter.vue')
 			},
 			{
 				path: '/name/:name?',
 				name: 'byName',
-				component: () => import('./views/MealsByName.vue')
+				component: () => import('./views/MealByName.vue')
 			},
 			{
 				path: '/ingredient/:ingredient?',
 				name: 'byIngredient',
-				component: () => import('./views/SearchByIngredients.vue')
+				component: () => import('./views/MealByIngredients.vue')
 			},
 			{
 				path: '/meal/:id',

@@ -9,17 +9,15 @@
 		>
 	</div>
 
-	<div class="grid grid-cols-1 md:grid-cols-3 gap-3 p-8">
-		<div v-for="meal of meals" :key="meal.idMeal" class="bg-white shadow rounded-xl">
-			<router-link to="/">
+	<div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-8">
+		<div v-for="meal of meals" :key="meal.idMeal" class="bg-white shadow rounded-xl pb-2">
+			<router-link :to="{name: 'mealDetails', params: {id: meal.idMeal}}">
 				<img :src="meal.strMealThumb" :alt="meal.strMeal" class="rounded-t-xl w-full h-48 object-cover">			
 			</router-link>
-			<div class="p-3 pb-5">
-				<h3 class="font-semibold">{{ meal.strMeal }}</h3>
+			<div class="p-3">
+				<h3 class="font-bold">{{ meal.strMeal }}</h3>
 				<p class="mb-4">Lorem ipus</p>
-				<a :href="meal.strYoutube" target="_blank" class="px-3 py-2 rounded border-2 border-red-600 bg-red-500 hover:bg-red-600 text-white transition-colors">
-					Youtube
-				</a>
+				<YoutubeButton :href="meal.strYoutube">View</YoutubeButton>				
 			</div>
 		</div>
 	</div>
@@ -29,6 +27,7 @@
 
 import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import YoutubeButton from '../components/YoutubeButton.vue'
 import store from '../store'
 
 
