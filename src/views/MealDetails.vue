@@ -22,21 +22,21 @@
 			<div>
 				<h2 class="text-2xl font-semibold mb-3">Ingredients</h2>
 				<ul>
-					<tempalate v-for="(el, idx) of new Array(20)" :key="idx">
+					<template v-for="(el, idx) of new Array(20)" :key="idx">
 						<li v-if="meal[`strIngredient${idx + 1}`]">
 							{{ idx + 1 }} {{ meal[`strIngredient${idx + 1}`] }}
 						</li>
-					</tempalate>
+					</template>
 				</ul>
 			</div>
 			<div>
 				<h2 class="text-2xl font-semibold mb-3">Measures</h2>
 				<ul>
-					<tempalate v-for="(el, idx) of new Array(20)" :key="idx">
+					<template v-for="(el, idx) of new Array(20)" :key="idx">
 						<li v-if="meal[`strMeasure${idx + 1}`]">
 							{{ idx + 1 }} {{ meal[`strMeasure${idx + 1}`] }}
 						</li>
-					</tempalate>
+					</template>
 				</ul>
 			</div>
 			<div class="mt-4">
@@ -62,7 +62,7 @@ const route = useRoute();
 const meal = ref({})
 
 onMounted(() => {
-	axiosClient.get(`/lookup.php?i=${route.params.id }`)
+	axiosClient.get(`lookup.php?i=${route.params.id }`)
 	.then(({data}) => {
 		debugger;
 		meal.value = data.meals[0] || {}

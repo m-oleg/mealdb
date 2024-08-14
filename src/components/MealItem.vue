@@ -14,7 +14,7 @@
 <script setup>
 import YoutubeButton from '../components/YoutubeButton.vue'
 
-const { meal } = defineProps({
+const props = defineProps({
 	meal: {
 		required: true,
 		type: Object

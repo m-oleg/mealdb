@@ -22,7 +22,12 @@ const routes = [
 				component: () => import('./views/MealByName.vue')
 			},
 			{
-				path: '/ingredient/:ingredient?',
+				path: '/ingredients',
+				name: 'ingredients',
+				component: () => import('./views/Ingredients.vue')
+			},
+			{
+				path: '/ingredient/:ingredient',
 				name: 'byIngredient',
 				component: () => import('./views/MealByIngredients.vue')
 			},
@@ -36,8 +41,7 @@ const routes = [
 	{
 		path: '/guest',
 		component: () => import('./components/GuestLayout.vue')
-	}
-	
+	}	
 ]
 
 const router = createRouter({
