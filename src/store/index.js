@@ -1,11 +1,14 @@
 import { createStore } from 'vuex'
-import * as actions from './actions'
-import * as getters from './getters'
-import * as mutations from './mutations'
-import state from './state'
+import actions from './actions'
+import getters from './getters'
+import mutations from './mutations'
 
 const store = createStore({
-	state,
+	state: {
+		searchedMeals: [],
+		mealsByLetter: [],
+		mealsByIngredient: []
+	},
 	actions,
 	mutations,
 	getters,
