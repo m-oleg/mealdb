@@ -1,9 +1,9 @@
 <template>
-	<div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-8">				
+	<div v-if="meals.length" class="grid grid-cols-1 md:grid-cols-3 gap-6 p-8">				
 		<MealItem v-for="meal of meals" :key="meal.ingredient" :meal="meal" />
 	</div>
-	<div v-if="!meals" class="flex justify-center text-gray-600">
-		There are no meals with such ingredient
+	<div v-else class="flex justify-center text-gray-600 p-4">
+		There are no meals
 	</div>	
 </template>
 
@@ -12,7 +12,8 @@ import MealItem from './MealItem.vue'
 
 const props = defineProps({	
 	meals: {
-		type: Object
+		required: true,
+		type: Array
 	}	
 })
 </script>

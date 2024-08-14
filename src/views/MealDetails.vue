@@ -1,7 +1,7 @@
 <template>
 	<div class="w-[800px] mx-auto p-8">
-		<h1 class="text-5xl font-bold mb-5">{{ meal.strMeal }}</h1>
-		<img :src="meal.strMealThumb" :alt="meal.strMeal" class="max-w-[100%]">
+		<h1 class="text-3xl font-bold text-orange-500">{{ meal.strMeal }}</h1>
+		<img :src="meal.strMealThumb" :alt="meal.strMeal" class="max-w-[100%] mt-6">
 		<div class="grid drid-cols-1 sm:grid-cols-3 text-lg py-4">
 			<div>
 				<strong class="font-bold">Category:</strong> {{ meal.strCategory }}
@@ -13,14 +13,14 @@
 				<strong class="font-bold">Tags:</strong> {{ meal.strTags }}
 			</div>
 		</div>
-		<hr class="mb-4">
+		<hr class="mb-5">
 		<div>
 			{{ meal.strInstructions }}
 		</div>
-		<hr class="my-4">
+		<hr class="my-5">
 		<div class="grid drid-cols-1 sm:grid-cols-2">
 			<div>
-				<h2 class="text-2xl font-semibold mb-3">Ingredients</h2>
+				<h2 class="text-2xl font-semibold mb-3 text-orange-500">Ingredients</h2>
 				<ul>
 					<template v-for="(el, idx) of new Array(20)" :key="idx">
 						<li v-if="meal[`strIngredient${idx + 1}`]">
@@ -30,7 +30,7 @@
 				</ul>
 			</div>
 			<div>
-				<h2 class="text-2xl font-semibold mb-3">Measures</h2>
+				<h2 class="text-2xl font-semibold mb-3 text-orange-500">Measures</h2>
 				<ul>
 					<template v-for="(el, idx) of new Array(20)" :key="idx">
 						<li v-if="meal[`strMeasure${idx + 1}`]">
@@ -39,12 +39,12 @@
 					</template>
 				</ul>
 			</div>
-			<div class="mt-4">
+			<div class="mt-8">
 				<YoutubeButton :href="meal.strYoutube">View on Youtube</YoutubeButton>	
 				<a 
 					:href="meal.strSource" 
 					target="_blank" 
-					class="ml-3 px-3 py-2 rounded border-2 border-transparent text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors">
+					class="ml-3 px-3 py-2 rounded border-2 border-transparent text-orange-500 hover:bg-orange-500 hover:text-white transition-colors">
 						View original source
 				</a>		
 			</div>
@@ -64,7 +64,6 @@ const meal = ref({})
 onMounted(() => {
 	axiosClient.get(`lookup.php?i=${route.params.id }`)
 	.then(({data}) => {
-		debugger;
 		meal.value = data.meals[0] || {}
 	})	
 })
